@@ -1,0 +1,146 @@
+<html>
+<head>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+body{
+  background-color: #eeeeee;
+}
+.draggable {
+  cursor: grab;
+}
+.window_design{
+  background-color: #ffffff;
+  width: 1600;
+  height: 800;
+  float: left;
+}
+.window_elements{
+  background-color: #eeddee;
+  width: 200;
+  height: 800;
+  float: left;
+
+}
+</style>
+
+<script src="raw.js"></script>
+<body>
+
+<svg id='svg_window' height="0" width="0" >
+  <defs>
+    <polygon id="star" points="10,1 4,18 19,6 1,6 16,18 10,1" stroke-width="4" />
+    <circle id='point' cx="0" cy="0" r="7" stroke="#555" stroke-width="3" fill='none' />
+    <g id='led' height="50" width="50">
+      <circle cx="0" cy="0" r="20" stroke="black" stroke-width="3" fill="none" />
+      <circle id='status' class='draggable' cx="0" cy="0" r="10" stroke="black" stroke-width="3" fill="red" />
+      <circle cx="-25" cy="0" r="5" stroke="black" stroke-width="3" fill="none" />
+      <circle cx="25" cy="0" r="5" stroke="black" stroke-width="3" fill="none" />
+    </g>
+    <g id='battery'>
+      <line x1="-20" y1="0" x2="-5" y2="0" stroke="black" stroke-width="3" />
+      <line x1="5" y1="0" x2="20" y2="0" stroke="black" stroke-width="3" />
+      <line class='draggable' x1="-5" y1="-10" x2="-5" y2="10" stroke="black" stroke-width="3" />
+      <line class='draggable' x1="5" y1="-20" x2="5" y2="20" stroke="black" stroke-width="3" />
+      <circle cx="-25" cy="0" r="5" stroke="black" stroke-width="3" fill="none" />
+      <circle cx="25" cy="0" r="5" stroke="black" stroke-width="3" fill="none" />
+    </g>
+    <g id='resistor'>
+      <line x1="-20" y1="0" x2="-15" y2="0" stroke="black" stroke-width="3" />
+      <line x1="15" y1="0" x2="20" y2="0" stroke="black" stroke-width="3" />
+      <rect class='draggable' x="-15" y="-5" width="30" height="10" stroke="black" stroke-width="3" fill = "#eeeeee"/>
+      <circle cx="-25" cy="0" r="5" stroke="black" stroke-width="3" fill="none" />
+      <circle cx="25" cy="0" r="5" stroke="black" stroke-width="3" fill="none" />
+    </g>
+    <line id='line_horizontal' x1="0" y1="0" x2="50" y2="0" stroke="brown" stroke-width="3" />
+    <line id='line_vertical' x1="0" y1="0" x2="0" y2="50" stroke="brown" stroke-width="3" />
+  </defs>
+  <div class='window_design'>
+    <svg id='window_design' height="800" width="1600" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="0" x2="0" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="50" y1="0" x2="50" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="100" y1="0" x2="100" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="150" y1="0" x2="150" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="200" y1="0" x2="200" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="250" y1="0" x2="250" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="300" y1="0" x2="300" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="350" y1="0" x2="350" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="400" y1="0" x2="400" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="450" y1="0" x2="450" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="500" y1="0" x2="500" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="550" y1="0" x2="550" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="600" y1="0" x2="600" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="650" y1="0" x2="650" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="700" y1="0" x2="700" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="750" y1="0" x2="750" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="800" y1="0" x2="800" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="850" y1="0" x2="850" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="900" y1="0" x2="900" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="950" y1="0" x2="950" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1000" y1="0" x2="1000" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1050" y1="0" x2="1050" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1100" y1="0" x2="1100" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1150" y1="0" x2="1150" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1200" y1="0" x2="1200" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1250" y1="0" x2="1250" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1300" y1="0" x2="1300" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1350" y1="0" x2="1350" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1400" y1="0" x2="1400" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1450" y1="0" x2="1450" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1500" y1="0" x2="1500" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1550" y1="0" x2="1550" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+      <line x1="1600" y1="0" x2="1600" y2="800" style="stroke:rgb(220,220,200);stroke-width:1" />
+
+      <line x1="0" y1="0" x2="1600" y2="0" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="50" x2="1600" y2="50" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="100" x2="1600" y2="100" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="150" x2="1600" y2="150" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="200" x2="1600" y2="200" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="250" x2="1600" y2="250" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="300" x2="1600" y2="300" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="350" x2="1600" y2="350" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="400" x2="1600" y2="400" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="450" x2="1600" y2="450" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="500" x2="1600" y2="500" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="550" x2="1600" y2="550" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="600" x2="1600" y2="600" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="650" x2="1600" y2="650" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="700" x2="1600" y2="700" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="750" x2="1600" y2="750" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <line x1="0" y1="800" x2="1600" y2="800" style="stroke:rgb(220,220,220);stroke-width:1" />
+      <g id='pointGroup'></g>
+      <g id='objectGroup'></g>
+      <g id='lineGroup'></g>
+    </svg>
+  </div>
+  <div class = 'window_elements'>
+    <svg id='window_elements' height="800" width="200" xmlns="http://www.w3.org/2000/svg">
+      <g id='led' height="50" width="50">
+        <circle cx="50" cy="50" r="20" stroke="black" stroke-width="3" fill="none" />
+        <circle id='status' class='draggable' cx="50" cy="50" r="10" stroke="black" stroke-width="3" fill="red" />
+        <circle cx="25" cy="50" r="5" stroke="black" stroke-width="3" fill="none" />
+        <circle cx="75" cy="50" r="5" stroke="black" stroke-width="3" fill="none" />
+      </g>
+      <g id='battery'>
+        <line x1="130" y1="50" x2="145" y2="50" stroke="black" stroke-width="3" />
+        <line x1="155" y1="50" x2="170" y2="50" stroke="black" stroke-width="3" />
+        <line class='draggable' x1="145" y1="40" x2="145" y2="60" stroke="black" stroke-width="3" />
+        <line class='draggable' x1="155" y1="30" x2="155" y2="70" stroke="black" stroke-width="3" />
+        <circle cx="125" cy="50" r="5" stroke="black" stroke-width="3" fill="none" />
+        <circle cx="175" cy="50" r="5" stroke="black" stroke-width="3" fill="none" />
+      </g>
+      <g id='resistor'>
+        <line x1="30" y1="125" x2="45" y2="125" stroke="black" stroke-width="3" />
+        <line x1="65" y1="125" x2="70" y2="125" stroke="black" stroke-width="3" />
+        <rect class='draggable' x="35" y="120" width="30" height="10" stroke="black" stroke-width="3" fill = "#eeeeee"/>
+        <circle cx="25" cy="125" r="5" stroke="black" stroke-width="3" fill="none" />
+        <circle cx="75" cy="125" r="5" stroke="black" stroke-width="3" fill="none" />
+      </g>
+    </svg>
+  </div>
+</svg>
+
+</body>
+</html>
